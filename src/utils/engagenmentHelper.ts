@@ -3,7 +3,6 @@ export const engagementHelper = {
     messageCountList: MessageCount[],
     channels: Channel[]
   ) => {
-    // Extract channels with messages for more than 1 date
     const channelsWithMultipleDates = channels.filter((channel) =>
       messageCountList.some(
         // @ts-ignore
@@ -11,7 +10,6 @@ export const engagementHelper = {
       )
     );
 
-    // Create data series for each selected channel
     const seriesData = channelsWithMultipleDates.map((channel) => {
       const channelMessages = messageCountList.filter(
         (message) => message.channelId === channel.value
